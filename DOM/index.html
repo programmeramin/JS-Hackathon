@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <section id="content">
+         
+    <h1 class="heading">Hello from Interactives cares</h1>
+    <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, nobis?</p>
+    <p class="text">Today we are learn about DOM</p>
+    <p class="tex">DOM Stands for Document Object Model</p>
+    </section>
+
+    <button id="click">Click to Modify</button>
+
+</body>
+
+      <script>
+         const heading = document.getElementsByClassName("heading");
+          
+         const paragraph = document.getElementsByTagName("p");
+         
+         const h2 = document.createElement("h2");
+
+         h2.innerText = "Hello From INTERACTIVES CARES Again!"
+         const contentSection = document.getElementById("content");
+         contentSection.appendChild(h2)
+         //paragraph[0].remove()
+
+         const button = document.getElementById("click");
+         
+        
+
+        button.addEventListener("click", function(){
+        //     for(let i = 0; i < para.length; i++){
+        //     para[i].innerHTML = `<strong>${para[i].innerHTML}</strong>`;
+        // }
+        const para = document.getElementsByTagName("p");
+        for(let para of paras){
+            para.innerHTML = `<strong>${para.innerHTML}</strong>`;
+        }
+
+        button.innerText = "Make normal"
+        })
+
+        //  function toggleButton() {
+
+        //     if(button.innerText == "Modify"){
+        //         button.innerText = "Back";
+        //     }else{
+        //         button.innerText = "Modify"
+        //     }
+
+        //  }
+
+          // add envent listener to the button to call toggleButton on Click
+          // button.addEventListener("click", toggleButton);
+
+         
+      </script>
+
+</html>

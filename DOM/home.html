@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="toggle">Off</button>
+
+<script>
+
+// Select the button element
+const button = document.getElementById('toggle');
+
+// Function to toggle the button text
+function toggleButton() {
+  if (button.innerText === "Off") {
+    button.innerText = "On";
+  } else {
+    button.innerText = "Off";
+  }
+}
+
+// Add event listener to the button to call toggleButton on click
+button.addEventListener('click', toggleButton);
+
+
+</script>
+
+</body>
+</html>
