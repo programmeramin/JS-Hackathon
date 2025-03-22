@@ -72,7 +72,13 @@ let persons = [
 
  let newPer = persons.flat().join(" ");
 
- // console.log(newPer);
+  for(let i = 0; i < persons.length; i++){
+    for(let j = 0; j < persons[i].length; j ++){
+        // console.log(persons[i][j]);
+        
+    }
+    
+  }
   
 
 //  for(let i = 0; i < persons.length; i++){
@@ -97,7 +103,7 @@ let phones = [
 
 for(let i = 0; i < phones.length; i++){
     for(let j = 0; j < phones[i].length; j++){
-        console.log(phones[i][j]);  
+        // console.log(phones[i][j]);  
     }
 }
 
@@ -125,12 +131,25 @@ let otp = "";
 
 for(let i = 0; i< 5; otp +=  Math.floor(Math.random() * 10), i++);
         
-console.log(otp);
+//console.log(otp);
         
+
 // create random otp 5 digit
 
 let otup = "";
 
-for(let i = 0; i < 8; otup = otup + Math.floor(Math.random() * 10), i++); console.log(otup);
+for(let i = 0; i < 8; otup = otup + Math.floor(Math.random() * 10), i++); //console.log(otup);
 
 
+
+
+
+
+var singleNumber = function(nums) {
+    nums = [2, 2, 1];
+   for(let i = 0; i < nums.length; i++){
+       for(let j = 0; j < nums[i].length; j++){
+           console.log(nums[i][j][2])
+       }
+   }
+};
