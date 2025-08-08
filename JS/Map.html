@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart App</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .product { border: 1px solid #ddd; padding: 10px; margin: 5px; border-radius: 5px; width: 200px; display: inline-block; }
+        button { padding: 5px 10px; margin-top: 5px; cursor: pointer; }
+        #cart { margin-top: 20px; }
+        .cart-item { background: #f0f0f0; padding: 8px; margin: 5px 0; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
+        .qty-btn { padding: 3px 6px; margin: 0 2px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 3px; }
+        .remove-btn { background: red; color: white; border: none; padding: 3px 8px; cursor: pointer; border-radius: 3px; }
+        #clearCart { background: darkred; color: white; border: none; padding: 8px 12px; margin-top: 10px; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<h1>🛒 Shopping Cart</h1>
+
+<div id="products">
+    <div class="product">
+        <h3>Apple</h3>
+        <p>Price: 50 টাকা</p>
+        <button onclick="cart.addProduct('Apple', 50)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <h3>Banana</h3>
+        <p>Price: 20 টাকা</p>
+        <button onclick="cart.addProduct('Banana', 20)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <h3>Orange</h3>
+        <p>Price: 30 টাকা</p>
+        <button onclick="cart.addProduct('Orange', 30)">Add to Cart</button>
+    </div>
+</div>
+
+<h2>🛍 Your Cart</h2>
+<div id="cart"></div>
+<h3 id="total">💰 Total: 0 টাকা</h3>
+<button id="clearCart" onclick="cart.clearCart()">🗑 Clear Cart</button>
+
+<script>
+class ShoppingCart {
+    constructor() {
+        this.cart = new Map(JSON.parse(localStorage.getItem("cart")) || []);
+        this.displayCart();
+    }
+
+    saveCart() {
+        localStorage.setItem("cart", JSON.stringify([...this.cart]));
+    }
+
+    addProduct(name, price, quantity = 1) {
+        if (this.cart.has(name)) {
+            let item = this.cart.get(name);
+            item.quantity += quantity;
+            if (item.quantity <= 0) {
+                this.cart.delete(name);
+            } else {
+                this.cart.set(name, item);
+            }
+        } else {
+            this.cart.set(name, { price, quantity });
+        }
+        this.saveCart();
+        this.displayCart();
+    }
+
+    removeProduct(name) {
+        this.cart.delete(name);
+        this.saveCart();
+        this.displayCart();
+    }
+
+    clearCart() {
+        this.cart.clear();
+        this.saveCart();
+        this.displayCart();
+    }
+
+    getTotal() {
+        let total = 0;
+        for (let { price, quantity } of this.cart.values()) {
+            total += price * quantity;
+        }
+        return total;
+    }
+
+    displayCart() {
+        let cartDiv = document.getElementById("cart");
+        cartDiv.innerHTML = "";
+        for (let [name, { price, quantity }] of this.cart) {
+            cartDiv.innerHTML += `
+                <div class="cart-item">
+                    <span>${name} - ${quantity} × ${price} টাকা</span>
+                    <div>
+                        <button class="qty-btn" onclick="cart.addProduct('${name}', ${price}, -1)">-</button>
+                        <button class="qty-btn" onclick="cart.addProduct('${name}', ${price}, 1)">+</button>
+                        <button class="remove-btn" onclick="cart.removeProduct('${name}')">X</button>
+                    </div>
+                </div>
+            `;
+        }
+        document.getElementById("total").innerText = `💰 Total: ${this.getTotal()} টাকা`;
+    }
+}
+
+const cart = new ShoppingCart();
+</script>
+
+</body>
+</html>
