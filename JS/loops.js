@@ -130,31 +130,39 @@ var singleNumber = function (nums) {
 
 const numbers = [12, 98, 45, 63, 21, 72];
 
-for(const num of numbers){
-    // console.log(num);   
+for (const num of numbers) {
+  // console.log(num);
 }
 
 const subjects = ["Bangla", "Math", "English", "Science", "Physics"];
 
-for(const sub of subjects){
-   // console.log(sub);
-    
+for (const sub of subjects) {
+  // console.log(sub);
 }
 
-const Foods = ["Beriyani", "Kacchi", "Polao",];
+const Foods = ["Beriyani", "Kacchi", "Polao"];
 
-
-for(const food of Foods){
-   // console.log(food);
-    
+for (const food of Foods) {
+  // console.log(food);
 }
-
 
 let nums = 0;
 while (nums < 5) {
-console.log(nums);
-nums = nums + 1;
+  // console.log(nums);
+  nums = nums + 1;
 }
 
 // Output: 0 1 2 3 4
 
+// while Loop
+
+let whileLoop = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let i = 0;
+while ( i < whileLoop.length) {
+    whileLoop[i] = whileLoop[i] * 3
+  // whileLoop = whileLoop + 1
+  // whileLoop += 1;
+  i++;
+}
+
+console.log(whileLoop);
