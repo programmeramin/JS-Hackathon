@@ -121,12 +121,31 @@ const friends = ["balam", "kalam", "salam", "gelam", "khailam",  "pailam"];
 const exist = friends.includes("khailam");
 
 if(exist){
-   console.log("Enjoy your party");
+   //console.log("Enjoy your party");
 }else{
-   console.log("Stay home ");
+   //console.log("Stay home ");
 }
 
+const index = friends.indexOf("gelam");
+
+console.log(index);
 
 
+const arrayInclude = ["Mango", "Lichi", "Pepe", "Apple"];
 
+const isMango = arrayInclude.indexOf("Mango");
+
+if(isMango){
+  console.log("Have a mango");
+  
+}else{
+  console.log("Don't have a mango");
+
+}
+
+const city = ["Dhaka", "Chittagong", "Sylhet"]
+const addCity = city.push("rajshahi");
+const checkRajshahi = city.includes("Rajshahi");
+
+console.log(checkRajshahi);
 
