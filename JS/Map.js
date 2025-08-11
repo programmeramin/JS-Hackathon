@@ -80,12 +80,14 @@ let names = ["Amin", "Rahim", "Karim", "Amin", "Rahim", "Amin", "Saddam", "Karim
 let nameCount = new Map();
 
 for(let name of names){
-   if(nameCount.has(name)){
-    nameCount.set(name, nameCount.get(name) + 1);
-   }else{
-    nameCount.set(name, 1)
-   }
+    if(nameCount.has(name)){
+        nameCount.set(name, nameCount.get(name) + 1);
+    }else{
+        nameCount.set(name, 1)
+    }
 }
+
+console.log(nameCount);
 
 
 // console.log(nameCount);
