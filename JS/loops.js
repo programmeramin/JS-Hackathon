@@ -1,3 +1,5 @@
+// লুপ হলো এমন একটা কোড ব্লক যা একাধিক বার চালানো হয় যতক্ষণ না একটা শর্ত সত্য থাকে।
+
 let names = ["Sakib", "Mashrafee", "Rohit", "Mahmdullah"];
 
 // for(name of names){
@@ -44,7 +46,7 @@ let name = ["Shakib", "Tamim", "Mushfiq", 12, true, "Hello world", "Emily"];
 let newArr = [];
 
 for (let i = 0; i < name.length; i++) {
-  newArr.push("Mr " + name[i]);
+  newArr.push("Mr" + name[i]);
 }
 
 // console.log(newArr);
@@ -117,13 +119,14 @@ for (let i = 0; i < 5; otp += Math.floor(Math.random() * 10), i++);
 
 let otup = "";
 
-for (let i = 0; i < 8; otup = otup + Math.floor(Math.random() * 10), i++); //console.log(otup);
+for (let i = 0; i < 5; otup += Math.floor(Math.random() * 10), i++);
+console.log(otup);
 
 var singleNumber = function (nums) {
   nums = [2, 2, 1];
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums[i].length; j++) {
-      console.log(nums[i][j][2]);
+      console.log(nums[i][j]);
     }
   }
 };
@@ -158,11 +161,123 @@ while (nums < 5) {
 
 let whileLoop = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let i = 0;
-while ( i < whileLoop.length) {
-    whileLoop[i] = whileLoop[i] * 3
+while (i < whileLoop.length) {
+  whileLoop[i] = whileLoop[i] * 3;
   // whileLoop = whileLoop + 1
   // whileLoop += 1;
   i++;
 }
 
-console.log(whileLoop);
+// console.log(whileLoop);
+
+let programmer = [
+  ["Setu", 99, "Javascript"],
+  ["Sumit", 99, "PHP"],
+  ["Hasin", 99, "PYTHON"],
+];
+
+for (let i = 0; i < programmer.length; i++) {
+  for (let j = 0; j < programmer[i].length; j++) {
+    // console.log(programmer[i][j]);
+  }
+}
+
+// ২.৪ for...in লুপ
+// কী জন্য: অবজেক্টের প্রপার্টির ওপর লুপ চালাতে।
+
+// সিনট্যাক্স:
+
+const person = { name: "Amin", age: 25, city: "Dhaka" };
+
+for (let key in person) {
+  // console.log(key, ":", person[key]);
+}
+
+// ২.৫ for...of লুপ
+// কী জন্য: iterable (array, string, map, set) এর উপাদান গুলো লুপ করার জন্য।
+
+// সিনট্যাক্স:
+
+const arr = [10, 20, 30];
+for (let value of arr) {
+  // console.log(value);
+}
+
+
+
+// ৩. লুপের মধ্যে break এবং continue
+// break – লুপ সম্পূর্ণ ভাঙে (stop করে)
+
+// continue – ওই iteration বাদ দিয়ে পরের iteration এ চলে যায়
+
+
+for(let i = 0; i <= 5; i++){
+  if(i === 5) break;  // ৫ এ লুপ থেমে যাবে
+  if(i === 3) continue;  // ৩ এ skip করবে
+  // console.log(i);
+  
+}
+
+
+// ৪. অ্যাডভান্স টিপস ও ট্রিকস
+// ৪.১ Nested লুপ (লুপের ভিতরে আরেকটি লুপ)
+// js
+// Copy code
+
+
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 2; j++) {
+        // console.log(`i=${i}, j=${j}`);
+    }
+}
+
+
+let k = 0;
+
+while(k < 5){
+  // console.log("while loop", i);
+  k++;
+  
+}
+
+
+// ১ থেকে ১০ পর্যন্ত সংখ্যাগুলোর মধ্যে ৫ বাদ দিয়ে প্রিন্ট করো।
+for (let i = 1; i <= 10; i++) {
+    if (i === 5) continue;
+    //console.log(i);
+}
+
+
+for(let i = 150; i <= 170; i++){
+    if(i % 7 === 0){
+      console.log(i);
+      
+    }
+}
+
+
+let roll = 0;
+
+for(let i = 31; i <= 55; i++){
+  roll = roll + i;
+
+}
+
+// console.log(roll);
+
+// 25 TO 75 print and jogfol
+
+let sum = 0;
+
+for(let i = 25; i < 75; i++){
+  sum = sum + i;
+  
+}
+// console.log(sum);
+
+
+for(let i = 0; i <= 20; i++){
+  if(i % 2 === 0){
+    console.log(i);
+  }
+}
