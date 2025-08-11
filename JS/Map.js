@@ -61,7 +61,7 @@ for(const x of developer.keys()){
     details += x + "<br>";
 }
 
-console.log(details);
+ // console.log(details);
 
 
 
