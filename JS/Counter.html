@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Counter App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 12px;
+            font-size: 16px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 300px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📝 Name Counter App</h1>
+    <input type="text" id="nameInput" placeholder="Enter a name">
+    <button onclick="addName()">Add</button>
+
+    <h2>📊 Count Result</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody id="nameTable">
+            <!-- ডাটা এখানে আসবে -->
+        </tbody>
+    </table>
+
+    <script>
+        let nameCount = new Map();
+
+        function addName() {
+            let name = document.getElementById("nameInput").value.trim();
+            if (name === "") {
+                alert("Please enter a name!");
+                return;
+            }
+
+            // Count Update
+            if (nameCount.has(name)) {
+                nameCount.set(name, nameCount.get(name) + 1);
+            } else {
+                nameCount.set(name, 1);
+            }
+
+            document.getElementById("nameInput").value = ""; // Clear input
+            updateTable();
+        }
+
+        function updateTable() {
+            let tableBody = document.getElementById("nameTable");
+            tableBody.innerHTML = ""; // Clear old rows
+
+            for (let [name, count] of nameCount) {
+                let row = `<tr>
+                            <td>${name}</td>
+                            <td>${count}</td>
+                           </tr>`;
+                tableBody.innerHTML += row;
+            }
+        }
+    </script>
+
+</body>
+</html>
