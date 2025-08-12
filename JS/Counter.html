@@ -45,63 +45,7 @@
     </div>
 
     <script>
-        let nameCount = new Map();
-
-        // Load from LocalStorage
-        window.onload = function() {
-            let savedData = localStorage.getItem("nameCountData");
-            if (savedData) {
-                nameCount = new Map(JSON.parse(savedData));
-                updateTable();
-            }
-        };
-
-        // Add Name
-        function addName() {
-            let name = document.getElementById("nameInput").value.trim();
-            if (name === "") {
-                alert("Please enter a name!");
-                return;
-            }
-
-            if (nameCount.has(name)) {
-                nameCount.set(name, nameCount.get(name) + 1);
-            } else {
-                nameCount.set(name, 1);
-            }
-
-            document.getElementById("nameInput").value = "";
-            saveData();
-            updateTable();
-        }
-
-        // Update Table
-        function updateTable() {
-            let tableBody = document.getElementById("nameTable");
-            tableBody.innerHTML = "";
-
-            for (let [name, count] of nameCount) {
-                let row = `<tr>
-                            <td>${name}</td>
-                            <td>${count}</td>
-                           </tr>`;
-                tableBody.innerHTML += row;
-            }
-        }
-
-        // Save to LocalStorage
-        function saveData() {
-            localStorage.setItem("nameCountData", JSON.stringify([...nameCount]));
-        }
-
-        // Clear All
-        function clearAll() {
-            if (confirm("Are you sure you want to clear all data?")) {
-                nameCount.clear();
-                localStorage.removeItem("nameCountData");
-                updateTable();
-            }
-        }
+     
     </script>
 
     <!-- Bootstrap JS -->
