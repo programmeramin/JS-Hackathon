@@ -48,19 +48,47 @@ const shovoHeight = inchToFeet(67);
 
     switch (operation) {
         case  "+" :
-       return num1 + num2,
+       return num1 + num2;
        case  "-" :
-       return num1 - num2,
+       return num1 - num2;
        case  "*" :
-       return num1 * num2,
+       return num1 * num2;
        case  "/" :
-       return num1 / num2,
+       return num1 / num2;
 
     }
 
  }
 
- let result = Calculate(34, "+", 45);
+ let result2 = Calculate(34, "+", 45);
 
- console.log(result);
+ console.log(result2);
  
+
+
+//  ✦ সিনট্যাক্স
+
+const add = (a, b) => a + b;
+// বৈশিষ্ট্য
+// Hoisting হয় না (যদি var না হয়; কিন্তু var হলেও undefined থাকবে)।
+
+// নিজস্ব this নেই → চারপাশের লেক্সিক্যাল স্কোপ থেকে this নেয়।
+
+// arguments অবজেক্ট নেই → দরকার হলে rest parameter ব্যবহার করতে হয়।
+
+// এক লাইনে হলে return বাদ দেওয়া যায়, এক্সপ্রেশন রিটার্ন হয়।
+
+// Constructor হিসেবে ব্যবহার করা যায় না (new দিলে এরর)।
+
+
+ const obj = {
+  name: "Amin",
+  normal: function () {
+    console.log(this.name); // Amin
+  },
+  arrow: () => {
+    console.log(this.name); // undefined (global/window context)
+  }
+};
+obj.normal();
+obj.arrow();
