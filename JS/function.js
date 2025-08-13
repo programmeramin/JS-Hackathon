@@ -118,4 +118,68 @@ function multiplier(factor) {
   };
 }
 const double = multiplier(2);
-console.log(double(5)); // 10
+// console.log(double(5)); // 10
+
+
+
+
+const nums = [1,2,3,4,5];
+
+const doubled = nums.filter((n) =>{
+  if(n % 2 === 0){
+    return n
+  }
+});
+
+const sumOf = nums.reduce((acc, value) => acc + value);
+
+const max = nums.reduce((acc, value) => Math.max(value));
+
+const min = nums.reduce((acc, value) => Math.min(acc));
+
+console.log(min);
+
+
+const products = [
+
+  {
+    name : "Pen",
+    amount : 5,
+    price : 10
+  },
+  {
+    name : "Book",
+    amount : 2,
+    price : 50
+  },
+  {
+    name : "NoteBook",
+    amount : 5,
+    price : 3000
+  }
+
+]
+
+const TotalPrice = products.reduce(function(acc, item){
+
+  return acc + item.amount * item.price;
+
+}, 0);
+
+// Nich argument a 0 is being acc er initial value
+
+const votes = ["Yes", "No", "Yes", "Yes", "Yes", "Absent", "No", "Na"];
+
+const voteResult = votes.reduce((acc, vote) => {
+
+  if(acc[vote]){
+    acc[vote]++
+  }else{
+    acc[vote] = 1;
+  }
+
+  return acc;
+
+},{});
+
+console.log(voteResult);
