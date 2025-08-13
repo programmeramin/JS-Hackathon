@@ -18,16 +18,16 @@ function calculator(num1, operation, num2,){
 
 let result = calculator(20, "+",  10);
 
-console.log(result);
+// console.log(result);
 
 const numbersOne = [1, 2, 3];
 const numbersTwo = [4, 5, 6];
 const numberThree = numbersOne.push(7);
 const numbersCombined = [...numbersOne, ...numbersTwo];
 
-console.log(numbersCombined);
+// console.log(numbersCombined);
 
-console.log("5" - "2"); 
+// console.log("5" - "2"); 
 
 
 function inchToFeet(inch){
@@ -62,7 +62,7 @@ const shovoHeight = inchToFeet(67);
 
  let result2 = Calculate(34, "+", 45);
 
- console.log(result2);
+// console.log(result2);
  
 
 
@@ -90,5 +90,32 @@ const add = (a, b) => a + b;
     console.log(this.name); // undefined (global/window context)
   }
 };
-obj.normal();
-obj.arrow();
+// obj.normal();
+// obj.arrow();
+
+
+// 3) Higher-Order Function (HOF)
+// একটা ফাংশন যেটা—
+
+// আরেকটা ফাংশনকে argument হিসেবে নেয়, অথবা
+
+// আরেকটা ফাংশনকে return করে
+
+
+// Example 1: ফাংশন আর্গুমেন্ট হিসেবে নেওয়া
+function greet(name) {
+  return `Hello, ${name}`;
+}
+function processUser(name, callback) {
+  console.log(callback(name));
+}
+processUser("Amin", greet);
+
+// Example 2: ফাংশন রিটার্ন করা
+function multiplier(factor) {
+  return function (num) {
+    return num * factor;
+  };
+}
+const double = multiplier(2);
+console.log(double(5)); // 10
