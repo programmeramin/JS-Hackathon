@@ -30,9 +30,7 @@ async function Timer(n){
 Timer(5);
 
 
-
-
-
+// Promise function
 
 const fetchPromise1 = fetch(
   "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
@@ -45,11 +43,15 @@ const fetchPromise3 = fetch(
 );
 
 Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
-  .then((responses) => {
-    for (const response of responses) {
-      console.log(`${response.url}, ${response.status}`);
+.then((responses) =>{
+    for(const response of responses){
+        console.log(` ${response.url} : ${response.status}`);
+        
     }
-  })
-  .catch((error) => {
-    console.error(`Failed to fetch: ${error}`);
-  });
+}).catch((error) =>{
+    console.log(`Error fetch : ${error}`);
+    
+})
+
+
+
