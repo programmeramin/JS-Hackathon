@@ -182,4 +182,22 @@ const voteResult = votes.reduce((acc, vote) => {
 
 },{});
 
-console.log(voteResult);
+// console.log(voteResult);
+
+
+function Counter() {
+  this.count = 0;
+  setInterval( function() {  // Q8: setInterval-এর Normal Function এ this global—arrow দিয়ে ফিক্স করা যায়।
+    this.count++;
+    // console.log(this.count);
+  }, 2000);
+}
+new Counter();
+
+
+(function(name) {
+//  console.log(`Welcome, ${name}`);
+})("Amin");  // IIFE (Immediately Invoked Function Expression)—scope isolate করতে, data privacy এর জন্য
+
+const added = a => b => c => a + b + c;
+console.log(added(1)(2)(3));
