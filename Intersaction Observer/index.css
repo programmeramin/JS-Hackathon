@@ -1,0 +1,17 @@
+body{
+    margin: auto;
+    align-items: center;
+    text-align: center;
+
+}
+
+#circle{
+   width: 250px;
+   height: 250px;
+   background-color: blue;
+   margin: auto;
+   padding: 4rem;
+   margin-top: 100rem;
+   margin-bottom: 50rem;
+   border-radius : 50%;
+}
