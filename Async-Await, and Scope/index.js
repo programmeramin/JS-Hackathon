@@ -1,34 +1,25 @@
 function delay(i){
-
     return new Promise(resolve =>{
-          
-    setTimeout(() =>{
-       resolve(i);
-    },i * 1000)
+       setTimeout(() => {
+       resolve(`Promise resolve succesfull ${i} ✅`)
+    }, i * 100);
     })
-
 }
-
 
 async function Timer(n){
 
-   console.log("Timer Start");
-   
-   for(let i = 0; i <= n; i++){
+  console.log("Start Timer");
   
-    const result = await delay(i);
-    console.log(result);
+  for(let i = 0; i <= n; i++){
+     const result = await delay(i);
+     console.log(result);
+     
+  }
+    console.log("End Timer");
     
-    
-   }
-
-   console.log("Timer end");
-   
-
 }
 
-Timer(5);
-
+Timer(5)
 
 // Promise function
 
@@ -45,11 +36,11 @@ const fetchPromise3 = fetch(
 Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
 .then((responses) =>{
     for(const response of responses){
-        console.log(` ${response.url} : ${response.status}`);
+      //  console.log(` ${response.url} : ${response.status}`);
         
     }
 }).catch((error) =>{
-    console.log(`Error fetch : ${error}`);
+   // console.log(`Error fetch : ${error}`);
     
 })
 
