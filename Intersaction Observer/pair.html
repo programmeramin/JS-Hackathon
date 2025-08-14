@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pair[0] State Update Demo</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        #tasks { margin-top: 10px; }
+        button { margin-top: 10px; padding: 5px 10px; }
+        .task { background: #f2f2f2; padding: 5px; margin: 3px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<h2>pair[0] = nextState Demo</h2>
+
+<div id="tasks"></div>
+<button id="addBtn">Add Task</button>
+
+<script>
+    // আমাদের "pair" (state + function)
+    let tasks = ["Learn JS", "Practice Coding"];
+    function addTask(newTask) {
+        let nextState = [...pair[0], newTask]; // পুরনো state + নতুন টাস্ক
+        pair[0] = nextState; // state আপডেট
+        render(); // UI আপডেট
+    }
+
+    let pair = [tasks, addTask]; // pair[0] = state, pair[1] = updater function
+
+    function render() {
+        const container = document.getElementById("tasks");
+        container.innerHTML = "";
+        pair[0].forEach(task => {
+            let div = document.createElement("div");
+            div.className = "task";
+            div.textContent = task;
+            container.appendChild(div);
+        });
+    }
+
+    document.getElementById("addBtn").addEventListener("click", () => {
+        let newTask = "New Task " + (pair[0].length + 1);
+        pair[1](newTask); // updater function কল
+    });
+
+    render(); // প্রথমবার রেন্ডার
+</script>
+
+</body>
+</html>
